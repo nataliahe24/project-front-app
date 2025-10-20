@@ -1,10 +1,9 @@
 import { useEffect, useState } from "react";
 import { useProject } from "../context/use.context";
 import { ProjectChart } from "../components/project.chart";
-import { AiSummary } from "../components/ai.summary";
+import { AiRecommendations } from "../components/ai.recommendations";
 import { ProjectTimelineChart } from "../components/project-timeline.chart";
 import { ProjectStatusChart } from "../components/project-status.chart";
-import { AiPredictions } from "../components/ai-predictions";
 import { ExportReport } from "../components/export-report";
 
 /**
@@ -77,7 +76,7 @@ export const Dashboard = () => {
             <ProjectChart />
           </div>
           <div className="space-y-6">
-            <AiSummary />
+            <AiRecommendations />
           </div>
         </div>
 
@@ -128,8 +127,6 @@ export const Dashboard = () => {
               </div>
             </div>
           )}
-          
-          <AiPredictions />
         </div>
 
         {projects.length === 0 && (
