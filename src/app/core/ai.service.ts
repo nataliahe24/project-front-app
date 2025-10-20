@@ -1,15 +1,11 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import type { ProjectResponse } from "../helpers/project.model";
 
-/**
- * AI Service for generating project insights using Google Gemini
- */
 class AiService {
   private genAI: GoogleGenerativeAI | null = null;
   private model: any = null;
 
   constructor() {
-    // Get API key from environment or use demo mode
     const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
 
     if (apiKey) {
@@ -20,13 +16,9 @@ class AiService {
     }
   }
 
-  /**
-   * Generate insights from project data using AI
-   */
   async generateInsights(
     projects: ProjectResponse[]
   ): Promise<{ message: string; recommendations: string[] }> {
-    // If no API key, use fallback analysis
     if (!this.model) {
       return this.fallbackAnalysis(projects);
     }
@@ -44,9 +36,6 @@ class AiService {
     }
   }
 
-  /**
-   * Build prompt for AI analysis
-   */
   private buildPrompt(projects: ProjectResponse[]): string {
     const now = new Date();
 
