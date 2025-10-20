@@ -1,37 +1,25 @@
-import { useMemo } from "react";
-import { useProject } from "../context/use.context";
+import { useEffect } from "react";
+import { useAnalytics } from "../context/use.analytics.context";
 
 /**
  * Chart component for visualizing project statistics
  * @organism
  */
 export const ProjectChart = () => {
-  const { projects } = useProject();
+  const { graphicsData, loading, getGraphicsData } = useAnalytics();
 
-  const stats = useMemo(() => {
-    const inProgress = projects.filter(
-      (p) => p.status === "in progress"
-    ).length;
-    const completed = projects.filter(
-      (p) => p.status === "completed"
-    ).length;
-    const total = projects.length;
+  useEffect(() => {
+    getGraphicsData();
+  }, []);
 
-    const inProgressPercent = total > 0 
-      ? (inProgress / total) * 100 
-      : 0;
-    const completedPercent = total > 0 
-      ? (completed / total) * 100 
-      : 0;
+  const getStatusData = (status: string) => {
+    return graphicsData?.projectsByStatus.find(
+      (p) => p.status === status
+    ) || { count: 0, percentage: 0 };
+  };
 
-    return {
-      inProgress,
-      completed,
-      total,
-      inProgressPercent,
-      completedPercent,
-    };
-  }, [projects]);
+  const inProgressData = getStatusData("in progress");
+  const completedData = getStatusData("completed");
 
   const StatCard = ({
     label,
@@ -58,22 +46,30 @@ export const ProjectChart = () => {
     </div>
   );
 
+  if (loading || !graphicsData) {
+    return (
+      <div className="flex justify-center items-center py-12">
+        <div className="text-gray-500">Loading statistics...</div>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <StatCard
           label="Total Projects"
-          value={stats.total}
+          value={graphicsData.totalProjects}
           color="bg-purple-100"
         />
         <StatCard
           label="In Progress"
-          value={stats.inProgress}
+          value={graphicsData.inProgressProjects}
           color="bg-blue-100"
         />
         <StatCard
           label="Completed"
-          value={stats.completed}
+          value={graphicsData.completedProjects}
           color="bg-green-100"
         />
       </div>
@@ -83,7 +79,7 @@ export const ProjectChart = () => {
           Project Status Distribution
         </h3>
 
-        {stats.total === 0 ? (
+        {graphicsData.totalProjects === 0 ? (
           <p className="text-gray-500 text-center py-8">
             No projects to display
           </p>
@@ -93,14 +89,15 @@ export const ProjectChart = () => {
               <div className="flex justify-between text-sm mb-1">
                 <span className="text-gray-600">In Progress</span>
                 <span className="font-medium text-gray-900">
-                  {stats.inProgress} ({stats.inProgressPercent.toFixed(1)}%)
+                  {inProgressData.count} (
+                  {inProgressData.percentage.toFixed(1)}%)
                 </span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <div
                   className="bg-blue-600 h-3 rounded-full 
                     transition-all duration-500"
-                  style={{ width: `${stats.inProgressPercent}%` }}
+                  style={{ width: `${inProgressData.percentage}%` }}
                 />
               </div>
             </div>
@@ -109,14 +106,15 @@ export const ProjectChart = () => {
               <div className="flex justify-between text-sm mb-1">
                 <span className="text-gray-600">Completed</span>
                 <span className="font-medium text-gray-900">
-                  {stats.completed} ({stats.completedPercent.toFixed(1)}%)
+                  {completedData.count} (
+                  {completedData.percentage.toFixed(1)}%)
                 </span>
               </div>
               <div className="w-full bg-gray-200 rounded-full h-3">
                 <div
                   className="bg-green-600 h-3 rounded-full 
                     transition-all duration-500"
-                  style={{ width: `${stats.completedPercent}%` }}
+                  style={{ width: `${completedData.percentage}%` }}
                 />
               </div>
             </div>
