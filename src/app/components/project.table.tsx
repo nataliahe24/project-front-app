@@ -189,8 +189,8 @@ export const ProjectTable = ({ onEdit }: ProjectTableProps) => {
                     disabled={deleting === project.id}
                     className="text-red-600 hover:text-red-900 
                       disabled:text-gray-400 transition-colors"
-                  >
-                    {deleting === project.id ? "..." : "Delete"}
+                  > 
+                    {deleting === project.id ? "..." : <span className="text-xl text-red-600"> 🗑️ </span>}
                   </button>
                 </div>
               </td>
