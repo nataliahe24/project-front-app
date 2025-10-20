@@ -189,9 +189,10 @@ export const ProjectForm = ({
       <div>
         <label className="block text-xs sm:text-sm font-medium 
           text-gray-700 mb-1 sm:mb-2">
-          Description
+          Description *
         </label>
         <textarea
+          required
           value={formData.description || ""}
           onChange={(e) => handleChange("description", e.target.value)}
           className="w-full px-3 py-2 text-sm sm:text-base 

@@ -67,8 +67,6 @@ ${i + 1}. ${p.name.toUpperCase()}
 
 End of Report
       `;
-
-      // Download as text file
       const blob = new Blob([report], { type: "text/plain" });
       const url = URL.createObjectURL(blob);
       const a = document.createElement("a");
