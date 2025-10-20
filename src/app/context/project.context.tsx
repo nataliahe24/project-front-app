@@ -24,7 +24,7 @@ interface ProjectServiceProviderProps {
   children: React.ReactNode;
 }
 
-export const ProjectServiceProvider = ({ children }: ProjectServiceProviderProps) => {
+export const ProjectContextProvider = ({ children }: ProjectServiceProviderProps) => {
   const [projects, setProjects] = useState<ProjectResponse[]>([]);
   
   useEffect(() => {
