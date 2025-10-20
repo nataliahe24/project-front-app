@@ -6,7 +6,7 @@ import { aiService } from "../core/ai.service";
  * AI-powered summary component for project insights
  * @organism
  */
-export const AiSummary = () => {
+export const AiRecommendations = () => {
   const { projects } = useProject();
   const [loading, setLoading] = useState(false);
   const [insights, setInsights] = useState<{
