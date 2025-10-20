@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { ProjectContextProvider } from "./app/context/project.context";
+import { AnalyticsContextProvider } from 
+  "./app/context/analytics.context";
 import { Dashboard } from "./app/pages/dashboard";
 import { Projects } from "./app/pages/projects";
 
@@ -29,29 +31,31 @@ function App() {
 
   return (
     <ProjectContextProvider>
-      <div className="min-h-screen bg-gray-50">
-        <nav className="bg-white shadow-md">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center h-16">
-              <div className="flex items-center gap-2">
-                <span className="text-2xl">📊</span>
-                <h1 className="text-xl font-bold text-gray-900">
-                  Project Manager
-                </h1>
-              </div>
-              <div className="flex gap-3">
-                <NavButton page="dashboard" label="Dashboard" />
-                <NavButton page="projects" label="Projects" />
+      <AnalyticsContextProvider>
+        <div className="min-h-screen bg-gray-50">
+          <nav className="bg-white shadow-md">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex justify-between items-center h-16">
+                <div className="flex items-center gap-2">
+                  <span className="text-2xl">📊</span>
+                  <h1 className="text-xl font-bold text-gray-900">
+                    Project Manager
+                  </h1>
+                </div>
+                <div className="flex gap-3">
+                  <NavButton page="dashboard" label="Dashboard" />
+                  <NavButton page="projects" label="Projects" />
+                </div>
               </div>
             </div>
-          </div>
-        </nav>
+          </nav>
 
-        <main>
-          {currentPage === "dashboard" && <Dashboard />}
-          {currentPage === "projects" && <Projects />}
-        </main>
-      </div>
+          <main>
+            {currentPage === "dashboard" && <Dashboard />}
+            {currentPage === "projects" && <Projects />}
+          </main>
+        </div>
+      </AnalyticsContextProvider>
     </ProjectContextProvider>
   );
 }
