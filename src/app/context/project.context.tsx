@@ -24,11 +24,13 @@ interface ProjectServiceProviderProps {
   children: React.ReactNode;
 }
 
-export const ProjectContextProvider = ({ children }: ProjectServiceProviderProps) => {
+export const ProjectContextProvider = ({
+  children,
+}: ProjectServiceProviderProps) => {
   const [projects, setProjects] = useState<ProjectResponse[]>([]);
-  
+
   useEffect(() => {
-    projectService.getProjects().then(data => setProjects(data));
+    projectService.getProjects().then((data) => setProjects(data));
   }, []);
 
   const getProjects = async () => {
@@ -50,24 +52,26 @@ export const ProjectContextProvider = ({ children }: ProjectServiceProviderProps
 
   const updateProject = async (id: string, project: Project) => {
     const data = await projectService.updateProject(id, project);
-    setProjects(projects.map(p => p.id === id ? data : p));
+    setProjects(projects.map((p) => (p.id === id ? data : p)));
     return data;
   };
 
   const deleteProject = async (id: string) => {
     await projectService.deleteProject(id);
-    setProjects(projects.filter(p => p.id !== id));
+    setProjects(projects.filter((p) => p.id !== id));
   };
 
   return (
-    <ProjectContext.Provider value={{
-      projects,
-      getProjects,
-      getProjectById,
-      createProject,
-      updateProject,
-      deleteProject,
-    }}>
+    <ProjectContext.Provider
+      value={{
+        projects,
+        getProjects,
+        getProjectById,
+        createProject,
+        updateProject,
+        deleteProject,
+      }}
+    >
       {children}
     </ProjectContext.Provider>
   );

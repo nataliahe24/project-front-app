@@ -1,7 +1,7 @@
 import { createContext, useState } from "react";
-import type { 
-  GraphicsData, 
-  AnalysisResponse 
+import type {
+  GraphicsData,
+  AnalysisResponse,
 } from "../helpers/analytics.model";
 import { analyticsService } from "../core/analytics.service";
 
@@ -23,12 +23,10 @@ interface AnalyticsProviderProps {
   children: React.ReactNode;
 }
 
-export const AnalyticsContextProvider = ({ 
-  children 
+export const AnalyticsContextProvider = ({
+  children,
 }: AnalyticsProviderProps) => {
-  const [graphicsData, setGraphicsData] = useState<GraphicsData | null>(
-    null
-  );
+  const [graphicsData, setGraphicsData] = useState<GraphicsData | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
 
   const getGraphicsData = async () => {
@@ -60,4 +58,3 @@ export const AnalyticsContextProvider = ({
     </AnalyticsContext.Provider>
   );
 };
-

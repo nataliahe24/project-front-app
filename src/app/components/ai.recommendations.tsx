@@ -17,7 +17,6 @@ export const AiRecommendations = () => {
     recommendations: [],
   });
 
-  // Create a stable dependency based on project IDs
   const projectIds = useMemo(
     () => projects.map((p) => p.id).join(","),
     [projects]
@@ -53,8 +52,10 @@ export const AiRecommendations = () => {
   }, [projectIds, projects]);
 
   return (
-    <div className="bg-gradient-to-r from-purple-500 to-blue-500 
-      p-6 rounded-lg shadow-lg text-white">
+    <div
+      className="bg-gradient-to-r from-purple-500 to-blue-500 
+      p-6 rounded-lg shadow-lg text-white"
+    >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🤖</span>
@@ -62,10 +63,12 @@ export const AiRecommendations = () => {
         </div>
       </div>
 
-      <div className="bg-white bg-opacity-20 backdrop-blur-sm 
-        p-4 rounded-lg mb-4 text-black">
+      <div
+        className="bg-white bg-opacity-20 backdrop-blur-sm 
+        p-4 rounded-lg mb-4 text-black"
+      >
         <p className="text-lg font-medium">
-          {loading ?  insights.message : "Analyzing projects..."}
+          {loading ? insights.message : "Analyzing projects..."}
         </p>
       </div>
 
@@ -74,7 +77,7 @@ export const AiRecommendations = () => {
           Recommendations
         </h4>
         <ul className="space-y-2">
-         {insights.recommendations.length > 0 ? (
+          {insights.recommendations.length > 0 ? (
             insights.recommendations.map((rec, index) => (
               <li
                 key={index}
@@ -85,8 +88,10 @@ export const AiRecommendations = () => {
               </li>
             ))
           ) : (
-            <li className="bg-white bg-opacity-10 backdrop-blur-sm 
-              p-3 rounded text-sm text-white text-center">
+            <li
+              className="bg-white bg-opacity-10 backdrop-blur-sm 
+              p-3 rounded text-sm text-white text-center"
+            >
               No recommendations available
             </li>
           )}
@@ -95,4 +100,3 @@ export const AiRecommendations = () => {
     </div>
   );
 };
-
