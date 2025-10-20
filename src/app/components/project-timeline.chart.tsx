@@ -21,7 +21,6 @@ export const ProjectTimelineChart = () => {
   const timelineData = useMemo(() => {
     if (projects.length === 0) return [];
 
-    // Get all unique months
     const monthsSet = new Set<string>();
     projects.forEach((p) => {
       const start = new Date(p.startDate);
@@ -39,7 +38,7 @@ export const ProjectTimelineChart = () => {
 
     const months = Array.from(monthsSet).sort();
 
-    // Calculate metrics per month
+    
     return months.map((month) => {
       const [year, monthNum] = month.split("-");
       const monthDate = new Date(
