@@ -1,8 +1,8 @@
 # 📊 Project Management Dashboard
 
-> Sistema de gestión de proyectos con análisis inteligente impulsado por IA
+> Project management system with intelligent analysis powered by AI
 
-Una aplicación moderna de gestión de proyectos construida con React, TypeScript, Vite y Tailwind CSS, que integra Google Gemini AI para proporcionar insights y recomendaciones inteligentes sobre el estado de tus proyectos.
+A modern project management application built with React, TypeScript, Vite, and Tailwind CSS, which integrates Google Gemini AI to provide intelligent insights and recommendations about your project status.
 
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
 ![React](https://img.shields.io/badge/React-19.1.1-61DAFB?logo=react)
@@ -12,276 +12,276 @@ Una aplicación moderna de gestión de proyectos construida con React, TypeScrip
 
 ---
 
-## ✨ Características Principales
+## ✨ Main Features
 
-### 🎯 Gestión de Proyectos
+### 🎯 Project Management
 
-- ✅ **CRUD completo**: Crear, leer, actualizar y eliminar proyectos
-- 📝 **Formularios validados**: Validaciones client-side y server-side
-- 🔴 **Feedback visual**: Inputs con indicadores de error en rojo
-- 📅 **Control de fechas**: Validación de fechas (inicio no puede ser futura)
-- 📱 **Diseño responsivo**: Optimizado para móvil y desktop
-- 🎨 **UI Moderna**: Gradientes, animaciones CSS y efectos hover
-- 📊 **Estadísticas en vivo**: Tarjetas con métricas actualizadas
+- ✅ **Complete CRUD**: Create, read, update and delete projects
+- 📝 **Validated forms**: Client-side and server-side validations
+- 🔴 **Visual feedback**: Inputs with error indicators in red
+- 📅 **Date control**: Date validation (start date cannot be in the future)
+- 📱 **Responsive design**: Optimized for mobile and desktop
+- 🎨 **Modern UI**: Gradients, CSS animations and hover effects
+- 📊 **Live statistics**: Cards with updated metrics
 
-### 🤖 Inteligencia Artificial
+### 🤖 Artificial Intelligence
 
-- 🧠 **Google Gemini AI**: Análisis inteligente con Gemini Pro
-- 💡 **Recomendaciones**: Sugerencias basadas en el estado de proyectos
-- 📊 **Resúmenes Ejecutivos AI**: Análisis de cada proyecto vía `/analytics/:id`
-- 🎯 **Analytics Backend**: Estadísticas agregadas desde el servidor
-- 🤖 **Modal Interactivo**: Vista de resúmenes AI en tabla de proyectos
+- 🧠 **Google Gemini AI**: Intelligent analysis with Gemini Pro
+- 💡 **Recommendations**: Suggestions based on project status
+- 📊 **AI Executive Summaries**: Analysis of each project via `/analytics/:id`
+- 🎯 **Analytics Backend**: Aggregated statistics from the server
+- 🤖 **Interactive Modal**: View of AI summaries in project table
 
-### 📈 Visualización de Datos
+### 📈 Data Visualization
 
-- 📊 **Estadísticas desde Backend**: `/analytics/graphics` con datos agregados
-- 📉 **Gráficos interactivos**: Recharts para visualización avanzada
-- 📅 **Timeline de proyectos**: Línea de tiempo visual
-- 🥧 **Distribución de estados**: Gráficos con porcentajes precisos
-- 📋 **Lista de recientes**: 5 proyectos más recientes
-- 🎨 **Diseño Moderno**: Gradientes, animaciones y efectos hover
+- 📊 **Statistics from Backend**: `/analytics/graphics` with aggregated data
+- 📉 **Interactive charts**: Recharts for advanced visualization
+- 📅 **Project timeline**: Visual timeline
+- 🥧 **Status distribution**: Charts with precise percentages
+- 📋 **Recent list**: 5 most recent projects
+- 🎨 **Modern Design**: Gradients, animations and hover effects
 
-### 💾 Exportación
+### 💾 Export
 
-- 📄 **Exportar a PDF**: Reportes en formato PDF
-- 📊 **Exportar a Excel/CSV**: Datos en formato tabular
-- 🎨 **Reportes personalizados**: Incluye estadísticas y gráficos
+- 📄 **Export to PDF**: Reports in PDF format
+- 📊 **Export to Excel/CSV**: Data in tabular format
+- 🎨 **Custom reports**: Includes statistics and charts
 
 ---
 
-## 🛠️ Tecnologías Utilizadas
+## 🛠️ Technologies Used
 
 ### Frontend Core
 
-- **React 19.1.1** - Biblioteca de UI
-- **TypeScript 5.9.3** - Tipado estático
-- **Vite 7.1.7** - Build tool y dev server
-- **Tailwind CSS 4.1.14** - Framework de estilos
+- **React 19.1.1** - UI library
+- **TypeScript 5.9.3** - Static typing
+- **Vite 7.1.7** - Build tool and dev server
+- **Tailwind CSS 4.1.14** - Styling framework
 
-### Librerías Adicionales
+### Additional Libraries
 
-- **@google/generative-ai** - Integración con Google Gemini AI
-- **Recharts** - Gráficos y visualizaciones
-- **React Router DOM** - Navegación entre páginas
+- **@google/generative-ai** - Integration with Google Gemini AI
+- **Recharts** - Charts and visualizations
+- **React Router DOM** - Navigation between pages
 
-### Herramientas de Desarrollo
+### Development Tools
 
-- **ESLint** - Linter de código
-- **TypeScript ESLint** - Reglas de linting para TS
-- **PostCSS** - Procesador de CSS
-- **Autoprefixer** - Prefijos CSS automáticos
+- **ESLint** - Code linter
+- **TypeScript ESLint** - Linting rules for TS
+- **PostCSS** - CSS processor
+- **Autoprefixer** - Automatic CSS prefixes
 
 ---
 
-## 📁 Estructura del Proyecto
+## 📁 Project Structure
 
 ```
 project-front-app/
 ├── src/
 │   ├── app/
-│   │   ├── components/           # Componentes reutilizables
+│   │   ├── components/           # Reusable components
 │   │   │   ├── ai.recommendations.tsx
 │   │   │   ├── export-report.tsx
 │   │   │   ├── project-status.chart.tsx
 │   │   │   ├── project-timeline.chart.tsx
-│   │   │   ├── project.chart.tsx      # ✨ Usa analytics API
+│   │   │   ├── project.chart.tsx      # ✨ Uses analytics API
 │   │   │   ├── project.form.tsx
-│   │   │   └── project.table.tsx      # ✨ Con AI Summary modal
+│   │   │   └── project.table.tsx      # ✨ With AI Summary modal
 │   │   ├── context/              # Context API
-│   │   │   ├── analytics.context.tsx  # ✨ Nuevo: Analytics context
+│   │   │   ├── analytics.context.tsx  # ✨ New: Analytics context
 │   │   │   ├── project.context.tsx
-│   │   │   ├── use.analytics.context.tsx  # ✨ Hook analytics
+│   │   │   ├── use.analytics.context.tsx  # ✨ Analytics hook
 │   │   │   └── use.context.tsx
-│   │   ├── core/                 # Servicios y lógica
+│   │   ├── core/                 # Services and logic
 │   │   │   ├── ai.service.ts
-│   │   │   ├── analytics.service.ts   # ✨ Nuevo: Analytics service
+│   │   │   ├── analytics.service.ts   # ✨ New: Analytics service
 │   │   │   └── project.service.ts
-│   │   ├── helpers/              # Utilidades y modelos
-│   │   │   ├── analytics.model.tsx    # ✨ Nuevo: Tipos analytics
+│   │   ├── helpers/              # Utilities and models
+│   │   │   ├── analytics.model.tsx    # ✨ New: Analytics types
 │   │   │   └── project.model.tsx
-│   │   └── pages/                # Páginas principales
+│   │   └── pages/                # Main pages
 │   │       ├── dashboard.tsx
-│   │       └── projects.tsx       # ✨ Diseño mejorado
-│   ├── environment/              # Variables de entorno
+│   │       └── projects.tsx       # ✨ Improved design
+│   ├── environment/              # Environment variables
 │   │   └── environment.ts
-│   ├── App.tsx                   # Componente raíz
-│   ├── main.tsx                  # Punto de entrada
-│   ├── index.css                 # ✨ Estilos + animaciones
-│   └── vite-env.d.ts            # Tipos de Vite
-├── .env                          # Variables de entorno
-├── vite.config.ts               # Configuración de Vite
-├── tsconfig.json                # Configuración de TypeScript
-├── tailwind.config.js           # Configuración de Tailwind
-└── package.json                 # Dependencias
+│   ├── App.tsx                   # Root component
+│   ├── main.tsx                  # Entry point
+│   ├── index.css                 # ✨ Styles + animations
+│   └── vite-env.d.ts            # Vite types
+├── .env                          # Environment variables
+├── vite.config.ts               # Vite configuration
+├── tsconfig.json                # TypeScript configuration
+├── tailwind.config.js           # Tailwind configuration
+└── package.json                 # Dependencies
 
 ```
 
 ---
 
-## 🚀 Instalación
+## 🚀 Installation
 
-### Requisitos Previos
+### Prerequisites
 
 - **Node.js** >= 18.x
-- **npm** >= 9.x o **yarn** >= 1.22.x
-- **Backend API** corriendo en `http://localhost:3002` (puerto configurable)
+- **npm** >= 9.x or **yarn** >= 1.22.x
+- **Backend API** running on `http://localhost:3002` (configurable port)
   - Endpoint Projects: `/project`
   - Endpoint Analytics: `/analytics`
 
-### 1. Clonar el repositorio
+### 1. Clone the repository
 
 ```bash
-git clone https://github.com/tu-usuario/project-management-dashboard.git
+git clone https://github.com/your-username/project-management-dashboard.git
 cd project-management-dashboard/project-front-app
 ```
 
-### 2. Instalar dependencias
+### 2. Install dependencies
 
 ```bash
 npm install
 ```
 
-### 3. Configurar variables de entorno
+### 3. Configure environment variables
 
-Crea un archivo `.env` en la raíz del proyecto:
+Create a `.env` file in the project root:
 
 ```env
-# API Backend URL (debe incluir /project al final)
+# API Backend URL (must include /project at the end)
 VITE_API_URL=http://localhost:PORT/project
 
-# Google Gemini AI API Key (Opcional - solo para AiRecommendations)
-# Obtén tu clave en: https://aistudio.google.com/app/apikey
-VITE_GEMINI_API_KEY=tu-api-key-aqui
+# Google Gemini AI API Key (Optional - only for AiRecommendations)
+# Get your key at: https://aistudio.google.com/app/apikey
+VITE_GEMINI_API_KEY=your-api-key-here
 ```
 
-**Notas Importantes:**
+**Important Notes:**
 
-- `VITE_API_URL`: Debe apuntar a `/project`. El servicio `AnalyticsService` automáticamente construye `/analytics` desde esta URL
-- `VITE_GEMINI_API_KEY`: Opcional - solo usado en `AiRecommendations`. Los resúmenes AI de proyectos usan el backend (que tiene su propia clave)
+- `VITE_API_URL`: Must point to `/project`. The `AnalyticsService` automatically builds `/analytics` from this URL
+- `VITE_GEMINI_API_KEY`: Optional - only used in `AiRecommendations`. Project AI summaries use the backend (which has its own key)
 
-### 4. Iniciar el servidor de desarrollo
+### 4. Start the development server
 
 ```bash
 npm run dev
 ```
 
-La aplicación estará disponible en `http://localhost:5173`
+The application will be available at `http://localhost:5173`
 
 ---
 
-## 📝 Scripts Disponibles
+## 📝 Available Scripts
 
 ```bash
-# Desarrollo
-npm run dev          # Inicia servidor de desarrollo
+# Development
+npm run dev          # Start development server
 
-# Producción
-npm run build        # Compila para producción
-npm run preview      # Previsualiza build de producción
+# Production
+npm run build        # Build for production
+npm run preview      # Preview production build
 
-# Calidad de código
-npm run lint         # Ejecuta ESLint
+# Code quality
+npm run lint         # Run ESLint
 ```
 
 ---
 
-## 🔧 Configuración
+## 🔧 Configuration
 
-### Variables de Entorno
+### Environment Variables
 
-| Variable              | Descripción                         | Requerido | Default                         |
-| --------------------- | ----------------------------------- | --------- | ------------------------------- |
-| `VITE_API_URL`        | URL del backend API                 | ✅ Sí     | `http://localhost:PORT/project` |
-| `VITE_GEMINI_API_KEY` | API key de Google Gemini (frontend) | ❌ No     | -                               |
+| Variable              | Description                      | Required | Default                         |
+| --------------------- | -------------------------------- | -------- | ------------------------------- |
+| `VITE_API_URL`        | Backend API URL                  | ✅ Yes   | `http://localhost:PORT/project` |
+| `VITE_GEMINI_API_KEY` | Google Gemini API key (frontend) | ❌ No    | -                               |
 
-**Nota**: Los endpoints de Analytics (`/analytics/graphics` y `/analytics/:id`) usan la API key configurada en el **backend**, no en el frontend.
+**Note**: Analytics endpoints (`/analytics/graphics` and `/analytics/:id`) use the API key configured in the **backend**, not the frontend.
 
-### Obtener Google Gemini API Key
+### Get Google Gemini API Key
 
-1. Ve a [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Crea una cuenta o inicia sesión
-3. Click en "Create API Key"
-4. Copia la clave (formato: `AIzaSy...`)
-5. Pégala en tu archivo `.env`
+1. Go to [Google AI Studio](https://aistudio.google.com/app/apikey)
+2. Create an account or log in
+3. Click on "Create API Key"
+4. Copy the key (format: `AIzaSy...`)
+5. Paste it in your `.env` file
 
-**Beneficios con API Key:**
+**Benefits with API Key:**
 
-- ✅ Análisis inteligente con IA generativa
-- ✅ Recomendaciones personalizadas
-- ✅ Insights contextuales
+- ✅ Intelligent analysis with generative AI
+- ✅ Personalized recommendations
+- ✅ Contextual insights
 
-**Sin API Key:**
+**Without API Key:**
 
-- ✅ Análisis programático básico
-- ✅ Recomendaciones predefinidas
-- ✅ Todas las demás funciones operativas
+- ✅ Basic programmatic analysis
+- ✅ Predefined recommendations
+- ✅ All other functions operational
 
 ---
 
-## 🎨 Componentes Principales
+## 🎨 Main Components
 
 ### 📋 ProjectForm
 
-Formulario para crear/editar proyectos con validaciones:
+Form to create/edit projects with validations:
 
-- Nombre requerido (mín. 3 caracteres)
-- Fecha de inicio no puede ser futura
-- Fecha de fin debe ser posterior a fecha de inicio
-- Feedback visual con bordes rojos en errores
-- Mensajes de error claros del backend
+- Required name (min 3 characters)
+- Start date cannot be in the future
+- End date must be after start date
+- Visual feedback with red borders on errors
+- Clear error messages from backend
 
 ### 📊 ProjectChart
 
-Estadísticas visuales consumiendo `/analytics/graphics`:
+Visual statistics consuming `/analytics/graphics`:
 
-- **Total de proyectos** desde el backend
-- **Proyectos en progreso** con porcentajes reales
-- **Proyectos completados** con cálculos precisos
-- **Barras de progreso animadas** con datos del API
-- **Distribución porcentual** calculada en el servidor
+- **Total projects** from backend
+- **Projects in progress** with real percentages
+- **Completed projects** with precise calculations
+- **Animated progress bars** with API data
+- **Percentage distribution** calculated on the server
 
-### 📋 ProjectTable (Mejorado)
+### 📋 ProjectTable (Enhanced)
 
-Tabla de proyectos con nueva funcionalidad:
+Project table with new functionality:
 
-- **Columna "AI Summary"** con botón 🤖 View
-- **Modal interactivo** que muestra resumen de IA
-- Consume endpoint `/analytics/:id` del backend
-- **Loading states** durante la generación
-- **Diseño responsive** con efectos visuales
+- **"AI Summary" column** with 🤖 View button
+- **Interactive modal** showing AI summary
+- Consumes backend `/analytics/:id` endpoint
+- **Loading states** during generation
+- **Responsive design** with visual effects
 
 ### 🤖 AiRecommendations
 
-Recomendaciones inteligentes:
+Intelligent recommendations:
 
-- Análisis de productividad
-- Sugerencias basadas en estado de proyectos
-- Detección de proyectos vencidos
-- Alertas de deadlines próximos
+- Productivity analysis
+- Suggestions based on project status
+- Detection of overdue projects
+- Upcoming deadline alerts
 
 ### 📅 ProjectTimelineChart
 
-Gráfico de línea de tiempo:
+Timeline chart:
 
-- Visualización con Recharts
-- Tendencias de creación
-- Distribución temporal
+- Visualization with Recharts
+- Creation trends
+- Temporal distribution
 
 ### 📊 ProjectStatusChart
 
-Gráfico de distribución:
+Distribution chart:
 
-- Pie chart de estados
-- Porcentajes visuales
-- Colores distintivos
+- Status pie chart
+- Visual percentages
+- Distinctive colors
 
 ### 📄 ExportReport
 
-Exportación de datos:
+Data export:
 
-- PDF con estadísticas
-- Excel/CSV para análisis
-- Botón de descarga rápida
+- PDF with statistics
+- Excel/CSV for analysis
+- Quick download button
 
 ---
 
@@ -290,37 +290,37 @@ Exportación de datos:
 ### ProjectService
 
 ```typescript
-// Obtener todos los proyectos
+// Get all projects
 await projectService.getProjects();
 
-// Obtener proyecto por ID
+// Get project by ID
 await projectService.getProjectById(id);
 
-// Crear proyecto
+// Create project
 await projectService.createProject(projectData);
 
-// Actualizar proyecto
+// Update project
 await projectService.updateProject(id, projectData);
 
-// Eliminar proyecto
+// Delete project
 await projectService.deleteProject(id);
 ```
 
-### AnalyticsService (✨ Nuevo)
+### AnalyticsService (✨ New)
 
 ```typescript
-// Obtener datos agregados para gráficos
+// Get aggregated data for charts
 await analyticsService.getGraphicsData();
-// Retorna: {
+// Returns: {
 //   totalProjects,
 //   projectsByStatus: [{ status, count, percentage }],
 //   completedProjects,
 //   inProgressProjects
 // }
 
-// Obtener análisis AI de un proyecto
+// Get AI analysis of a project
 await analyticsService.getProjectAnalysis(projectId);
-// Retorna: {
+// Returns: {
 //   summary: "AI generated summary...",
 //   totalProjects: 1,
 //   generatedAt: Date
@@ -330,222 +330,222 @@ await analyticsService.getProjectAnalysis(projectId);
 ### AiService
 
 ```typescript
-// Generar insights con IA
+// Generate insights with AI
 await aiService.generateInsights(projects);
 ```
 
 ---
 
-## 🎯 Uso
+## 🎯 Usage
 
 ### Dashboard
 
-Navega a `/` para ver:
+Navigate to `/` to view:
 
-- **Estadísticas en tiempo real** desde `/analytics/graphics`
-- **Recomendaciones de IA** personalizadas
-- **Gráficos avanzados** (Timeline y Status)
-- **Proyectos recientes** ordenados por fecha
-- **Diseño moderno** con gradientes y animaciones
+- **Real-time statistics** from `/analytics/graphics`
+- **Personalized AI recommendations**
+- **Advanced charts** (Timeline and Status)
+- **Recent projects** sorted by date
+- **Modern design** with gradients and animations
 
-### Gestión de Proyectos
+### Project Management
 
-Navega a `/projects` para:
+Navigate to `/projects` to:
 
-- **Ver proyectos en tabla** con columna AI Summary
-- **Estadísticas visuales** (Total, In Progress, Completed)
-- **Crear nuevo proyecto** con formulario validado
-- **Editar proyecto existente**
-- **Ver resumen AI** de cada proyecto (modal interactivo)
-- **Eliminar proyecto** con confirmación
-- **Exportar datos** a PDF/Excel
-- **Diseño moderno** con header mejorado y gradientes
+- **View projects in table** with AI Summary column
+- **Visual statistics** (Total, In Progress, Completed)
+- **Create new project** with validated form
+- **Edit existing project**
+- **View AI summary** of each project (interactive modal)
+- **Delete project** with confirmation
+- **Export data** to PDF/Excel
+- **Modern design** with improved header and gradients
 
 ---
 
-## 🔐 Validaciones
+## 🔐 Validations
 
 ### Client-Side (Frontend)
 
-- ✅ Nombre requerido (min 3 caracteres)
-- ✅ Fecha inicio ≤ fecha actual
-- ✅ Fecha fin > fecha inicio
-- ✅ Descripción opcional
+- ✅ Required name (min 3 characters)
+- ✅ Start date ≤ current date
+- ✅ End date > start date
+- ✅ Optional description
 
 ### Server-Side (Backend)
 
-- ✅ Validación de tipos de datos
-- ✅ Validación de formato de fechas
-- ✅ Validación de estados válidos
-- ✅ Manejo de errores descriptivo
+- ✅ Data type validation
+- ✅ Date format validation
+- ✅ Valid status validation
+- ✅ Descriptive error handling
 
 ---
 
-## 🐛 Solución de Problemas
+## 🐛 Troubleshooting
 
-### La IA no funciona
+### AI is not working
 
 ```bash
-# Verifica que tengas una API key válida
-# En la consola del navegador deberías ver:
+# Verify you have a valid API key
+# In the browser console you should see:
 # 🔑 Gemini API Key configured: YES ✅
 # 🤖 Calling Gemini AI...
 # ✅ Gemini AI response received: ...
 
-# Si ves "NO ❌", configura VITE_GEMINI_API_KEY en .env
+# If you see "NO ❌", configure VITE_GEMINI_API_KEY in .env
 ```
 
-### Estilos no se cargan
+### Styles are not loading
 
 ```bash
-# Asegúrate de tener Tailwind CSS configurado
+# Make sure you have Tailwind CSS configured
 npm install -D tailwindcss postcss autoprefixer @tailwindcss/postcss
 
-# Reinicia el servidor
+# Restart the server
 npm run dev
 ```
 
-### Error de conexión al backend
+### Backend connection error
 
 ```bash
-# Verifica que el backend esté corriendo
-# Por defecto en: http://localhost:PORT
+# Verify the backend is running
+# By default at: http://localhost:PORT
 
-# Prueba manualmente los endpoints:
+# Test the endpoints manually:
 curl http://localhost:PORT/project
 curl http://localhost:PORT/analytics/graphics
 ```
 
-### Analytics no muestra datos
+### Analytics not showing data
 
 ```bash
-# Verifica que el backend tenga configurada la API key de Gemini
-# En project-api-rest/.env debe existir:
-GEMINI_API_KEY=tu-api-key-aqui
+# Verify the backend has Gemini API key configured
+# In project-api-rest/.env should exist:
+GEMINI_API_KEY=your-api-key-here
 
-# Los endpoints /analytics requieren esta configuración en el backend
+# The /analytics endpoints require this configuration in the backend
 ```
 
 ---
 
-## 📦 Build para Producción
+## 📦 Production Build
 
 ```bash
-# 1. Compilar
+# 1. Build
 npm run build
 
-# 2. La carpeta 'dist' contendrá los archivos estáticos
-# 3. Despliega 'dist' en tu servidor preferido
+# 2. The 'dist' folder will contain the static files
+# 3. Deploy 'dist' to your preferred server
 
-# 4. Previsualizar localmente
+# 4. Preview locally
 npm run preview
 ```
 
-### Despliegue Recomendado
+### Recommended Deployment
 
-- **Vercel** - Deploy automático desde Git
-- **Netlify** - CI/CD integrado
-- **AWS S3 + CloudFront** - Escalable
-- **GitHub Pages** - Gratis para proyectos open source
-
----
-
-## 🤝 Contribución
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`)
-3. Commit tus cambios (`git commit -m 'feat: agregar nueva funcionalidad'`)
-4. Push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
-### Convención de Commits
-
-- `feat:` Nueva funcionalidad
-- `fix:` Corrección de bug
-- `docs:` Cambios en documentación
-- `style:` Cambios de formato
-- `refactor:` Refactorización de código
-- `test:` Agregar tests
-- `chore:` Cambios en build o dependencias
+- **Vercel** - Automatic deploy from Git
+- **Netlify** - Integrated CI/CD
+- **AWS S3 + CloudFront** - Scalable
+- **GitHub Pages** - Free for open source projects
 
 ---
 
-## 📄 Licencia
+## 🤝 Contributing
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Contributions are welcome. Please:
+
+1. Fork the project
+2. Create a branch (`git checkout -b feature/new-feature`)
+3. Commit your changes (`git commit -m 'feat: add new feature'`)
+4. Push to the branch (`git push origin feature/new-feature`)
+5. Open a Pull Request
+
+### Commit Convention
+
+- `feat:` New feature
+- `fix:` Bug fix
+- `docs:` Documentation changes
+- `style:` Formatting changes
+- `refactor:` Code refactoring
+- `test:` Add tests
+- `chore:` Build or dependency changes
 
 ---
 
-## 👨‍💻 Autor
+## 📄 License
 
-Desarrollado con ❤️ por **Tu Nombre**
-
-- GitHub: [@tu-usuario](https://github.com/tu-usuario)
-- LinkedIn: [Tu Perfil](https://linkedin.com/in/tu-perfil)
-- Email: tu-email@ejemplo.com
+This project is under the MIT License. See the `LICENSE` file for more details.
 
 ---
 
-## 🙏 Agradecimientos
+## 👨‍💻 Author
 
-- [React](https://react.dev/) - Framework de UI
+Developed with ❤️ by **Your Name**
+
+- GitHub: [@your-username](https://github.com/your-username)
+- LinkedIn: [Your Profile](https://linkedin.com/in/your-profile)
+- Email: your-email@example.com
+
+---
+
+## 🙏 Acknowledgments
+
+- [React](https://react.dev/) - UI framework
 - [Vite](https://vite.dev/) - Build tool
-- [Tailwind CSS](https://tailwindcss.com/) - Estilos
-- [Google Gemini](https://ai.google.dev/) - IA Generativa
-- [Recharts](https://recharts.org/) - Gráficos
+- [Tailwind CSS](https://tailwindcss.com/) - Styling
+- [Google Gemini](https://ai.google.dev/) - Generative AI
+- [Recharts](https://recharts.org/) - Charts
 
 ---
 
-## 🆕 Novedades en esta Versión
+## 🆕 What's New in This Version
 
-### ✨ Nuevas Funcionalidades
+### ✨ New Features
 
-#### 📊 Integración con Backend Analytics
+#### 📊 Backend Analytics Integration
 
-- **AnalyticsService**: Nuevo servicio que consume endpoints del backend
-- **GET `/analytics/graphics`**: Estadísticas agregadas (total, por estado, porcentajes)
-- **GET `/analytics/:id`**: Resúmenes AI generados con Gemini Pro
+- **AnalyticsService**: New service that consumes backend endpoints
+- **GET `/analytics/graphics`**: Aggregated statistics (total, by status, percentages)
+- **GET `/analytics/:id`**: AI summaries generated with Gemini Pro
 
-#### 🎨 Mejoras Visuales
+#### 🎨 Visual Improvements
 
-- **Página Projects Renovada**:
+- **Renovated Projects Page**:
 
-  - Header con gradientes azul-púrpura
-  - Tarjetas de estadísticas en tiempo real
-  - Iconos y badges mejorados
-  - Animaciones CSS suaves (fadeIn)
-  - Efectos hover con escalado
+  - Header with blue-purple gradients
+  - Real-time statistics cards
+  - Improved icons and badges
+  - Smooth CSS animations (fadeIn)
+  - Hover effects with scaling
 
-- **Tabla de Proyectos Mejorada**:
-  - Nueva columna "AI Summary" con botón 🤖 View
-  - Modal interactivo para mostrar resúmenes
-  - Loading states durante generación AI
-  - Diseño responsive mejorado
+- **Improved Project Table**:
+  - New "AI Summary" column with 🤖 View button
+  - Interactive modal to display summaries
+  - Loading states during AI generation
+  - Improved responsive design
 
-#### 🔄 Refactorizaciones
+#### 🔄 Refactorings
 
-- **ProjectChart**: Ahora consume `/analytics/graphics` en lugar de calcular localmente
-- **Contexts**: Nuevo `AnalyticsContext` para gestión de estado de analytics
-- **Models**: Nuevos tipos TypeScript en `analytics.model.tsx`
-- **Eliminado**: Componente `AiPredictions` (obsoleto)
+- **ProjectChart**: Now consumes `/analytics/graphics` instead of calculating locally
+- **Contexts**: New `AnalyticsContext` for analytics state management
+- **Models**: New TypeScript types in `analytics.model.tsx`
+- **Removed**: `AiPredictions` component (obsolete)
 
-#### 🚀 Rendimiento
+#### 🚀 Performance
 
-- Cálculos de estadísticas movidos al backend
-- Reducción de procesamiento en el frontend
-- Datos más precisos y consistentes
-
----
-
-## 📚 Documentación Adicional
-
-- [Guía de instalación del Backend](../project-api-rest/README.md)
-- [Configuración de Google Gemini AI](./AI_SETUP.md)
-- [Arquitectura del proyecto](./ARCHITECTURE.md)
-- [Guía de contribución](./CONTRIBUTING.md)
+- Statistics calculations moved to backend
+- Reduced frontend processing
+- More accurate and consistent data
 
 ---
 
-**⭐ Si este proyecto te fue útil, considera darle una estrella en GitHub!**
+## 📚 Additional Documentation
+
+- [Backend Installation Guide](../project-api-rest/README.md)
+- [Google Gemini AI Configuration](./AI_SETUP.md)
+- [Project Architecture](./ARCHITECTURE.md)
+- [Contributing Guide](./CONTRIBUTING.md)
+
+---
+
+**⭐ If this project was useful to you, consider giving it a star on GitHub!**
