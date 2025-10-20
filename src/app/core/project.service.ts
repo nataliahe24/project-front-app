@@ -1,12 +1,6 @@
 import { environment } from "../../environment/environment";
-import type { 
-  Project, 
-  ProjectResponse 
-} from "../helpers/project.model";
+import type { Project, ProjectResponse } from "../helpers/project.model";
 
-/**
- * Custom error class for API errors
- */
 class ApiError extends Error {
   status: number;
   data?: unknown;
@@ -19,29 +13,49 @@ class ApiError extends Error {
   }
 }
 
-/**
- * Handles fetch response and throws errors if needed
- */
-const handleResponse = async <T,>(
-  response: Response
-): Promise<T> => {
+const handleResponse = async <T>(response: Response): Promise<T> => {
   if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new ApiError(
-      errorData.message || `HTTP Error: ${response.status}`,
-      response.status,
-      errorData
-    );
+    let errorData: any = {};
+    let errorMessage = "";
+
+    try {
+      errorData = await response.json();
+
+      if (errorData.message) {
+        errorMessage = errorData.message;
+      } else if (errorData.error) {
+        errorMessage = errorData.error;
+      } else if (errorData.errors && Array.isArray(errorData.errors)) {
+        errorMessage = errorData.errors.join(", ");
+      } else if (typeof errorData === "string") {
+        errorMessage = errorData;
+      }
+    } catch {
+      errorData = {};
+    }
+
+    if (!errorMessage) {
+      const statusMessages: Record<number, string> = {
+        400: "Invalid data. Please check all fields.",
+        401: "Authentication required.",
+        403: "Access denied.",
+        404: "Project not found.",
+        409: "Project already exists.",
+        422: "Invalid data format.",
+        500: "Server error. Please try again later.",
+      };
+
+      errorMessage =
+        statusMessages[response.status] ||
+        `Request failed (${response.status})`;
+    }
+
+    throw new ApiError(errorMessage, response.status, errorData);
   }
   return response.json();
 };
 
-/**
- * Converts date strings to Date objects in project response
- */
-const parseProjectDates = (
-  project: ProjectResponse
-): ProjectResponse => ({
+const parseProjectDates = (project: ProjectResponse): ProjectResponse => ({
   ...project,
   startDate: new Date(project.startDate),
   endDate: project.endDate ? new Date(project.endDate) : undefined,
@@ -49,9 +63,6 @@ const parseProjectDates = (
   updatedAt: new Date(project.updatedAt),
 });
 
-/**
- * Service class for managing project-related API calls
- */
 class ProjectService {
   private readonly baseUrl: string;
 
@@ -59,10 +70,6 @@ class ProjectService {
     this.baseUrl = environment.apiUrl;
   }
 
-  /**
-   * Fetches all projects from the API
-   * @returns Promise with array of projects
-   */
   async getProjects(): Promise<ProjectResponse[]> {
     try {
       const response = await fetch(this.baseUrl, {
@@ -80,11 +87,6 @@ class ProjectService {
     }
   }
 
-  /**
-   * Fetches a single project by ID
-   * @param id - Project unique identifier
-   * @returns Promise with project data
-   */
   async getProjectById(id: string): Promise<ProjectResponse> {
     try {
       const response = await fetch(`${this.baseUrl}/${id}`, {
@@ -102,11 +104,6 @@ class ProjectService {
     }
   }
 
-  /**
-   * Creates a new project
-   * @param project - Project data to create
-   * @returns Promise with created project data
-   */
   async createProject(project: Project): Promise<ProjectResponse> {
     try {
       const response = await fetch(this.baseUrl, {
@@ -125,16 +122,7 @@ class ProjectService {
     }
   }
 
-  /**
-   * Updates an existing project
-   * @param id - Project unique identifier
-   * @param project - Updated project data
-   * @returns Promise with updated project data
-   */
-  async updateProject(
-    id: string,
-    project: Project
-  ): Promise<ProjectResponse> {
+  async updateProject(id: string, project: Project): Promise<ProjectResponse> {
     try {
       const response = await fetch(`${this.baseUrl}/${id}`, {
         method: "PUT",
@@ -152,11 +140,6 @@ class ProjectService {
     }
   }
 
-  /**
-   * Deletes a project by ID
-   * @param id - Project unique identifier
-   * @returns Promise that resolves when deletion is complete
-   */
   async deleteProject(id: string): Promise<void> {
     try {
       const response = await fetch(`${this.baseUrl}/${id}`, {
@@ -177,4 +160,3 @@ class ProjectService {
 export const projectService = new ProjectService();
 
 export { ProjectService, ApiError };
-
